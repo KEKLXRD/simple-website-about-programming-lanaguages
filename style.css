@@ -1,0 +1,152 @@
+html{
+	height: 1080px;
+}
+
+body {
+	height: 1080px;
+	padding-top: 90px;
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+.bg {
+	background-image: url("backgr.jpg");
+	background-color: 0000B0;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a:link{
+	color: #97EEFF;
+	text-decoration: none;
+	}
+
+a:visited {
+  color: #97EEFF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+a:active {
+  color: yellow;
+  text-decoration: none;
+}
+	
+@-webkit-keyframes color-change{
+    0%{
+		color: red;
+		}
+    25%{
+		color: blue;
+		}
+    50%{
+		color: orange;
+		}
+	75%{
+		color: yellow;
+	}
+	100%{
+		color: red;
+	}
+}
+
+@-moz-keyframes color-change{
+    0%{
+		color: red;
+		}
+    25%{
+		color: blue;
+		}
+    50%{
+		color: orange;
+		}
+	75%{
+		color: yellow;
+	}
+	100%{
+		color: red;
+	}
+}
+
+@-ms-keyframes color-change{
+    0%{
+		color: red;
+		}
+    25%{
+		color: blue;
+		}
+    50%{
+		color: orange;
+		}
+	75%{
+		color: yellow;
+	}
+	100%{
+		color: red;
+	}
+}
+
+@-o-keyframes color-change{
+    0%{
+		color: red;
+		}
+    25%{
+		color: blue;
+		}
+    50%{
+		color: orange;
+		}
+	75%{
+		color: yellow;
+	}
+	100%{
+		color: red;
+	}
+}
+
+@keyframes color-change{
+    0%{
+		color: red;
+		}
+    25%{
+		color: blue;
+		}
+    50%{
+		color: orange;
+		}
+	75%{
+		color: yellow;
+	}
+	100%{
+		color: red;
+	}
+}
+
+.anim{
+	-webkit-animation: color-change 2s infinite;
+    -moz-animation: color-change 2s infinite;
+    -o-animation: color-change 2s infinite;
+    -ms-animation: color-change 2s infinite;
+    animation: color-change 2s infinite;
+}
+
+#titlu{
+	font-size: 275%;
+	text-align: center;
+}
+
+h2{
+	padding-left: 10px;
+}
+
+h2, p{
+	color: #F4FF97;
+	font-family: helvetica;
+	font-size: 120%;
+}

@@ -1,0 +1,59 @@
+<html>
+
+  <head>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <title>Constructia de compilator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body class="bg">
+  
+    <header style="text-align: left; padding-left: 0">
+	  <a href="javascript:history.go(-1)"><<Înapoi</a>
+	</header>
+    <h1 id="titlu" class="anim">Construcția de compilator</h1>
+
+	</br>
+	
+	<p>Un compilator implementează o transformare formală dintr-un program sursă de nivel înalt(high-level) într-un program țintă de nivel scăzut(low-level). Proiectul de compilatoare poate defini o soluție capăt la capăt sau poate aborda un subset definit care interfețează cu alte instrumente de compilare, de ex. preprocesoare, asamblori, linkeri. Cerințele de proiectare includ interfețe riguros definite atât intern între componentele compilatorului, cât și externe între seturile de instrumente.</p>
+	<p>În primii ani, abordarea adoptată în proiectarea compilatorului a fost afectată în mod direct de complexitatea limbajului de computere care trebuie procesat, de experiența designerilor și de resursele disponibile. Limitările resurselor au dus la necesitatea de a trece prin codul sursă de mai multe ori. Un compilator pentru o limbă relativ simplă scrise de o persoană ar putea fi o singură bucată de software monolit. Cu toate acestea, deoarece limbajul sursă crește în complexitate, designul poate fi împărțit într-o serie de faze interdependente. Fazele separate oferă îmbunătățiri de proiectare care se concentrează pe dezvoltarea funcțiilor din procesul de compilare.</p>
+	</br>
+	</br>
+	<hr>
+	</br>
+	
+	<h2 style="padding-left: 50px">Compilatoare One-pass și multi-pass</h2>
+	<p>Clasificarea compilatoarelor pe numărul de pass-uri are fundalul în limitele resurselor hardware ale computerelor. Compilarea implică efectuarea unei mulțimi de lucruri, iar computerele timpurii nu au suficientă memorie pentru a conține un program care a făcut toate aceste lucruri. Deci compilatorii au fost împărțiți în programe mai mici, fiecare făcând o trecere peste sursa (sau o reprezentare a acesteia) efectuând unele dintre analizele și traducerile necesare.</p>
+	<p>Abilitatea de a compila într-o singură trecere a fost văzută clasic ca un avantaj, deoarece simplifică sarcina de a scrie un compilator, iar compilatoarele de o singură trecere, în general, efectuează compilări mai rapide decât compilatoarele multi-pass. Astfel, parțial determinate de limitările resurselor sistemelor timpurii, multe dintre limbile timpurii au fost proiectate în mod specific, astfel încât acestea să poată fi compilate într-o singură trecere (de exemplu, Pascal).</p>
+	<p>În unele cazuri, proiectarea unei caracteristici de limbă poate necesita un compilator să efectueze mai mult de o trecere peste sursă. De exemplu, luați în considerare o declarație care apare pe linia 20 a sursei care afectează traducerea unei declarații care apare pe linia 10. În acest caz, prima trecere trebuie să adune informații despre declarațiile care apar după declarațiile pe care le afectează, cu traducerea reală întâmplătoare în timpul unei treceri ulterioare.</p>
+	<p>Dezavantajul compilării într-o singură trecere este că nu este posibil să se efectueze multe dintre optimizările sofisticate necesare pentru a genera cod de înaltă calitate. Poate fi dificil să numărați cât de mult trece un compilator de optimizare. De exemplu, diferitele faze de optimizare pot analiza o expresie de mai multe ori, dar analizează o singură expresie o singură dată.</p>
+	<p>Împărțirea unui compilator în programe mici este o tehnică folosită de cercetătorii interesați să producă compilatoare corecte. Demonstrarea corectitudinii unui set de programe mici necesită adesea mai puțin efort decât să dovedească corectitudinea unui program mai mare, unic, echivalent.</p>	
+	
+	<hr>
+	</br>
+	
+	<h2 style="padding-left: 50px">Structura compilatorului în trei etape</h2>
+	
+	<center>
+	  <a href="../img/compiler2.png" target="_blank"><img src="../img/compiler2.png"></a>
+	</center>
+	
+	<p>Indiferent de numărul exact de faze în proiectarea compilatorului, fazele pot fi atribuite în una din cele trei etape. Etapele includ un capăt frontal, un capăt de mijloc și un spate.</p>
+	<ul style="color: #F4FF97; font-size: 120%">
+	  <li>Secțiunea frontală verifică sintaxa și semantica conform unui anumit limbaj sursă. Pentru limbile tipărite în mod static, aceasta efectuează verificarea tipului prin colectarea informațiilor de tip. Dacă programul de intrare este incorect sintactic sau are o eroare de tip, acesta generează erori și avertismente, evidențiindu-le în codul sursă. Aspecte ale capătului frontal includ analiza lexicală, analiza sintaxei și analiza semantică. Capătul frontal transformă programul de intrare într-o reprezentare intermediară (IR) pentru prelucrare ulterioară de către capătul din mijloc. Acest IR este, de obicei, o reprezentare inferioară a programului în ceea ce privește codul sursă.</li>
+	  <li>Capătul mijlociu efectuează optimizări pe IR care sunt independente de arhitectura procesorului care este vizată. Această independență a codului sursă / codului mașinii este destinată să permită distribuirea optimizărilor generice între versiunile compilatorului care suportă diferite limbi și procesoare țintă. Exemple de optimizări de la mijlocul mijlocului sunt eliminarea codului inutil (eliminarea codului mort) sau a codului inaccesibil (analiza accesibilității), descoperirea și propagarea valorilor constante (propagarea constantă), relocarea calculului într-un loc mai puțin executat (ex. Dintr-o buclă) , sau specializarea de calcul bazat pe context. Producând în cele din urmă IR "optimizat" care este utilizat de partea din spate.</li>
+	  <li>Partea din spate ia IR optimizat de la capătul din mijloc. Acesta poate efectua mai multe analize, transformări și optimizări specifice pentru arhitectura CPU țintă. Partea din spate generează codul de asamblare dependent de țintă, efectuând alocarea registrelor în proces. Partea din spate efectuează programarea instrucțiunilor, care comandă instrucțiuni pentru a menține unitățile de execuție paralelă ocupate prin umplerea sloturilor de întârziere. Deși majoritatea algoritmilor de optimizare sunt NP-hard, tehnicile euristice sunt bine dezvoltate și în prezent sunt implementate în compilatoare de calitate a producției. De obicei, ieșirea unui spate este un cod de mașină specializat pentru un anumit procesor și sistem de operare.</li>
+	</ul>
+	<p>Această abordare front / mijloc / back-end face posibilă combinarea front-end-urilor pentru diferite limbi cu capetele spate pentru diferite procesoare în timp ce se partajează optimizările capătului din mijloc. Exemple practice ale acestei abordări sunt Colecția de compilatoare GNU, LLVM și Kitul de compilatoare Amsterdam, care au mai multe front-end-uri, optimizări partajate și multiple back-end-uri.</p>
+	
+	</br>
+	</br>
+	</br>
+	</br>
+	
+	<p style="text-align: right; font-size: 95%"><a href="bibliografie.html">ＢＩＢＬＩＯＧＲＡＦＩＥ ></a></p>
+	
+  </body>
+
+</html>

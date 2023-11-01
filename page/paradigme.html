@@ -1,0 +1,55 @@
+<html>
+
+  <head>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <title>Paradigme de programare</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body class="bg">
+  
+    <header style="text-align: left; padding-left: 0">
+	  <a href="javascript:history.go(-1)"><<Înapoi</a>
+	</header>
+    <h1 id="titlu" class="anim">Paradigme de programare</h1>
+
+	</br>
+	
+	<p>O <b>paradigmă de programare</b> este un stil fundamental de programare care permite specificarea unui model de rezolvare a unei probleme.</p>
+	<p>În implementarea unei soluții, uneori limbajul de programare folosit oferă aceleași mecanisme ca și paradigma folosită. Într-o astfel de situație implementarea metodei si verificarea soluției se face simplu. Se poate spune că paradigma de programare folosită este o clasă de limbaje. În acest sens putem spune că limbajul C include caracteristici ale paradigmelor imperativă și procedurală, iar la acestea limbajul C++ adaugă și caracteristici ale paradigmei de orientare pe obiecte.</p>
+	
+	<a href="../img/paradigms.png" target="_blank"><img src="../img/paradigms.png" height=60% width=90%></a>
+	
+	</br>
+	
+	<h2 id="func" class="anim">Programare funcțională</h2>
+	<p><b>Programarea funcțională</b> este o <a href="#titlu">paradigmă de programare</a> care tratează calculul ca evaluare de funcții matematice și evită starea și datele mutabile. Se pune accent pe aplicarea de funcții, spre deosebire de <a href="#imp">programarea imperativă</a>, care folosește în principal de schimbările de stare.</p>
+	<p><b>Limbajele de programare funcționale</b>, mai ales cele pur funcționale, sunt promovate mai ales în mediile academice, fiind rar folosite în dezvoltarea de software comercial. Totuși, există limbaje funcționale folosite și în industrie și în aplicații comerciale, cum ar fi <i>Erlang, OCaml, Haskell, Scheme</i> (din 1986) și limbaje de programare specifice unor domenii, ca <i>R</i> (în statistică), <i>Mathematica</i> (calcul simbolic), <i>J</i> și <i>K</i> (în analiza financiară), și <i>XSLT</i> (XML).</p>
+	<p>Multe limbaje de programare nefuncționale, cum sunt C, C++ și C# pot fi făcute să aibă un comportament funcțional prin utilizarea pointerilor la funcții, biblioteca &#60;functional&#62;, respectiv funcțiile lambda.</p>
+	<p><b>Programarea funcțională</b> este foarte diferită de <a href="#imp">programarea imperativă</a>. Cele mai semnificative diferențe provin din faptul că programarea funcțională evită efectele laterale, care sunt utilizate în programarea imperativă pentru implementarea stării și intrărilor și ieșirilor. Programarea funcțională pură interzice efectele laterale, ceea ce îi aduce transparența referențială, care face mai ușor de verificat, optimizat, și paralelizat programele, și mai ușor de scris unelte automate de efectuare a acestor taskuri. Functionalele sunt rareori folosite în programarea imperativă. Acolo unde un program imperativ ar utiliza o buclă pentru parcurgerea unei liste, un stil funcțional folosește adesea o funcțională, map, care primește ca argumente o funcție și o listă, aplicând funcția pe fiecare element al listei, returnând o listă cu rezultatele.</p>
+    
+	<h2 id="imp" class="anim">Programare imperativă</h2>
+	<p>În informatică, <b>programarea imperativă</b>, în contrast cu programarea declarativă, este o <a href="#titlu">paradigmă de programare</a> care descrie calculul ca instrucțiuni ce modifică starea unui program. În aproape același fel în care modul imperativ din limbajele naturale exprimă comenzi pentru acțiuni, programele imperative sunt o secvență de comenzi pentru acționarea calculatorului. <a href="#proc">Programarea procedurală</a> este o metodă obișnuită de executare a <b>programării imperative</b> și de aceea cei doi termeni sunt folosiți deseori ca sinonime.</p>
+	
+	<h2 id="proc" class="anim">Programare procedurală</h2>
+	<p><b>Programarea procedurală</b> este uneori folosită ca sinonim pentru <a href="#imp">programare imperativă</a> (specifică pașii care trebuie urmați de program pentru a se ajunge la starea dorită), dar se poate referi și la o paradigmă de programare bazată pe conceptul de apel de procedură. Procedurile, numite și rutine, subrutine, metode sau funcții (a nu se confunda cu funcțiile matematice, ci similare cu cele utilizate în <a href="#func">programarea funcțională</a>), conțin o serie de pași care trebuie executați. Orice procedură poate fi apelată la orice moment din execuția unui program, inclusiv de alte proceduri sau chiar de ea însăși.</p>
+    
+	<h2 id="oop" class="anim">Programare orientată pe obiecte</h2>
+	<p><b>Programarea orientată pe obiecte</b> (POO, uneori și <b>Programarea orientată obiect</b>, uneori denumită ca și în limba engleză, <b>Object Oriented Programming (OOP)</b>) este o <a href="#titlu">paradigmă de programare</a>, axată pe ideea încapsulării, adică grupării datelor și codului care operează asupra lor, într-o singură structură. Un alt concept important asociat programării orientate obiect este polimorfismul, care permite abstractizări ce permit o descriere conceptuală mai simplă a soluției.</p>
+    <center> 
+	  <a href="../img/oop.jpg" target="_blank"><img src="../img/oop.jpg" width=90% height=60%></a>
+	</center>
+	<p>Programarea orientată pe obiect (Programare Orientată Obiectual) este unul din cei mai importanți pași făcuți în evoluția limbajelor de programare spre o mai puternică abstractizare în implementarea programelor. Ea a apărut din necesitatea exprimării problemei într-un mod mai natural ființei umane. Astfel unitățile care alcătuiesc un program se apropie mai mult de modul nostru de a gândi decât modul de lucru al calculatorului. Până la apariția programării orientate pe obiect, programele erau implementate în limbaje de <a href="#proc">programare procedurale</a> (C, Pascal) sau în limbaje care nici măcar nu ofereau o modalitate de grupare a instrucțiunilor în unități logice (funcții, proceduri) cum este cazul limbajului de asamblare (asembler). Altfel spus o problemă preluată din natură trebuia fragmentată în repetate rânduri astfel încât să se identifice elementele distincte, implementabile într-un limbaj de programare. O mare problemă a programării procedurale era separarea datelor de unitățile care prelucrau datele (subrutinele), ceea ce făcea foarte dificilă extinderea și întreținerea unui program. Astfel s-a pus problema ca aceste două entități (date și subrutine) să fie grupate într-un anumit mod, astfel încât subrutinele să "știe" în permanență ce date prelucrează și, mai mult decât atât, ele să formeze un modul, adică o unitate care separă implementarea de interfață, ceea ce implică posibilitatea refolosirii codului. A apărut astfel conceptul de clasă. Clasa realizează, în speță, ceea ce am văzut mai înainte: grupează datele și unitățile de prelucrare a acestora într-un modul, unindu-le astfel într-o entitate mult mai naturală. Deși tehnica se numește "Programare Orientată Obiectual", conceptul de bază al ei este Clasa. Clasa, pe lângă faptul că abstractizează foarte mult analiza/sinteza problemei, are proprietatea de generalitate, ea desemnând o mulțime de obiecte care împart o serie de proprietăți.</p>
+	<p>Ideea POO (Programare Orientată Obiectual) este de a crea programele ca o colecție de obiecte, unități individuale de cod care interacționează unele cu altele, în loc de simple liste de instrucțiuni sau de apeluri de proceduri. Obiectele POO sunt de obicei reprezentări ale obiectelor din viața reală (domeniul problemei), astfel încât programele realizate prin tehnica POO sunt mai ușor de înțeles, de depanat și de extins decât programele <a href="#proc">procedurale</a>. Aceasta este adevărată mai ales în cazul proiectelor software complexe și de dimensiuni mari, care se gestionează făcând apel la ingineria programării.</p>
+	
+	</br>
+	</br>
+	</br>
+	</br>
+	
+	<p style="text-align: right; font-size: 95%"><a href="bibliografie.html">ＢＩＢＬＩＯＧＲＡＦＩＥ ></a></p>
+	
+  </body>
+
+</html>
